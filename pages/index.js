@@ -18,7 +18,7 @@ function HomePage(props) {
   );
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const client = await MongoClient.connect(
     "mongodb+srv://Nokhalal:Nokhalal@cluster0.grwrf.mongodb.net/news?retryWrites=true&w=majority"
   );
@@ -38,7 +38,6 @@ export async function getStaticProps() {
         description: newss.description,
       })),
     },
-    revalidate: 1,
   };
 }
 export default HomePage;
